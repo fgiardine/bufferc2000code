@@ -20,3 +20,14 @@ NUMERATOR
 
 DENOMINATOR
 1	-1.99697698226113	0.997176556280317
+
+
+
+ notch_in = Vc1_V;
+    notch_in240 = Vc1_V;
+    notch_out = b0_notch*notch_in + b1_notch*notch_in1 + b2_notch*notch_in2 - (a1_notch*notch_out1 + a2_notch*notch_out2);
+    notch_out240 = b0_notch240*notch_in240 + b1_notch240*notch_in1240 + b2_notch240*notch_in2240 - (a1_notch240*notch_out1240 + a2_notch240*notch_out2240);
+    Vc1_notch_V = (float) notch_out;
+    Vc1_notch_V240 = (float) notch_out240;
+
+    Vc1_bpf_V = Vc1_V - (Vc1_notch_V + Vc1_notch_V240);
